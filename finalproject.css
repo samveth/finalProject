@@ -4,6 +4,16 @@ h1 {
   text-shadow: 4px 4px 4px #aaa
 }
 
+h1#heading {
+  text-align: center;
+}
+
+p {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40em
+}
+
 div#graph {
   border: 2px;
   border-radius: 8px;
