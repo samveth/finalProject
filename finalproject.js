@@ -40,7 +40,7 @@ function type(d) {
   return d
 }
 
- // characteristics of the inside the pie graph   
+// characteristics of the inside the pie graph   
 d3.select('div#pie-chart svg g')
   .selectAll('path')
   .data(pie(pieData))
@@ -51,11 +51,11 @@ d3.select('div#pie-chart svg g')
   .attr("stroke", "black")
   .attr("stroke-width", "6px")
 
-  //define constants of timeline svg
+//define constants of timeline svg
 const marginWidth = 50;
 const svgWidth = 600;
-const svgHeight = 400;
-const margin = {top: marginWidth, right: marginWidth, bottom: marginWidth, left: marginWidth};
+const svgHeight = 800;
+const margin = {top: marginWidth, right: marginWidth, bottom: marginWidth, left: marginWidth + 75};
 const plotWidth = svgWidth - margin.left - margin.right;
 const plotHeight = svgHeight - margin.top - margin.bottom;
  
@@ -77,7 +77,6 @@ function draw(timeline) {
                 .attr('y', 0)
                 .attr('width', plotWidth)
                 .attr('height', plotHeight)
-                .attr('stroke', 'grey')
                 .attr('fill', 'transparent');
 
     // X scale
@@ -88,7 +87,7 @@ function draw(timeline) {
     // Y scale
     const yScale = d3.scaleLinear()
                      .domain([d3.min(timeline.map(d => d.week -1)), d3.max(timeline.map(d => d.week +1))])
-                     .range([plotHeight, 0]);
+                     .range([0 ,plotHeight]);
 
     // wt scale
     // const sizeScale = d3.scaleSqrt()
@@ -96,52 +95,79 @@ function draw(timeline) {
     //                     .range([1, 10]);
 
 
-    console.log(d3.extent(0), timeline.map(d => d.week));
+    // console.log(d3.extent(0), timeline.map(d => d.week));
 
 // plot all data points in scatter plot
     scatterInner.selectAll('circle')
                 .data(timeline)
                 .enter()
                 .append('rect')
-                .attr('x', 30)
-                .attr('y', d => yScale(d.week))
-                .attr('width', 150)
-                .attr('height' , 30)
-                .attr("fill", (d, i) => color(i))
-                .attr('opacity' , 0.5)
-                .style('stroke', 'black')
+                  .attr('x', -45)
+                  .attr('y', d => yScale(d.week) - 25)
+                  .attr('width', 150)
+                  .attr('height' , 35)
+                  .attr("fill", (d, i) => color(i))
+                  .attr('opacity' , 0.5)
+                  .style('stroke', 'black')
                 .on('mouseover' , popUp)
-                // .on('mouseleave' , popDown)
-                
+                .on('mouseleave' , popDown)
+                .on('click' , seeInfo)
+  scatterInner.selectAll('text')
+               .data(timeline)
+               .enter()
+               .append('text')
+                  .text (function(d) { return 'Week ' +  d['week']})
+                  .style('stroke' , 'black')
+                  .attr('dx' , -5)
+                  .attr('dy' , d => yScale(d.week))             
 
   // create axes
-    let xAxisBottom = d3.axisBottom(xScale);
-    let yAxisLeft = d3.axisLeft(yScale);
-    scatterInner.append('g')
-                .attr('class', 'y-axis')
-                .call(yAxisLeft);
-    scatterInner.append('g')
-                .attr('transform', 'translate(' + 0 + ', ' + plotHeight + ')')
-                .attr('class', 'x-axis')
-                .call(xAxisBottom);
+    // let xAxisBottom = d3.axisBottom(xScale);
+    // let yAxisLeft = d3.axisLeft(yScale);
+    // scatterInner.append('g')
+    //             .attr('class', 'y-axis')
+    //             .style('stroke', 'white')
+    //             .call(yAxisLeft);
+    // scatterInner.append('g')
+    //             .attr('transform', 'translate(' + 0 + ', ' + plotHeight + ')')
+    //             .attr('class', 'x-axis')
+    //             .call(xAxisBottom);
 
 
+ function weekNumber(d) {
+   return + d.week
+ }
+console.log(weekNumber)
+
+// This is the function that shows the information when the mouse isn't on the rectangle
   function popUp(d) {
     let mouseLoc = d3.mouse(this)
       let info =
-      ' This is information'
-    d3.selectAll('.tooltip, .info')
+      'Click here to learn more about week ' + d.week + '!!'
+    d3.selectAll('.tooltip')
       .html(info)
       .style('visibility' , 'visible')
-      .style('left', mouseLoc[0] + yScale + xScale.bandwidth() + 'px')
-      .style('top', mouseLoc[1] - yScale.bandwidth() + 'px')
+      .style('left', 250  + 'px')
+      .style('top', mouseLoc[1] + 'px')
+  
   }
+
+// This is the function that hides the information when the mouse isn't on the rectangle
+function popDown() {
+  d3.selectAll('.tooltip').style('visibility' , 'hidden')
+}
+
+function seeInfo(d) {
+  let box = d3.select(this)
+  let info2 = 
+  'More information'
+  d3.selectAll('.tooltip')
+    .html(info2)
+    .style('visibility' , 'visible')
+    .style('left', 250  + 'px')
+    .style('right', margin.right * 0.5 + 'px')
+}
+
 }
 draw(timeline);
 
-
-
-// function popDown(d) {
-//   d3.select(this)
-//     .style('fill' , (d , i) => color(i))
-// }
