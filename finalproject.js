@@ -143,7 +143,7 @@ console.log(weekNumber)
   function popUp(d) {
     let mouseLoc = d3.mouse(this)
       let info =
-      'Click here to learn more about week ' + d.week + '!!'
+      'Click here to learn more about Week ' + d.week + '!!'
     d3.selectAll('.tooltip')
       .html(info)
       .style('visibility' , 'visible')
@@ -160,7 +160,7 @@ function popDown() {
 function seeInfo(d) {
   let box = d3.select(this)
   let info2 = 
-  'More information'
+  d.description
   d3.selectAll('.tooltip')
     .html(info2)
     .style('visibility' , 'visible')

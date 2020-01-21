@@ -1,10 +1,15 @@
-h1 {
+h1#hours {
+  font-size: 14px;
+} 
+
+h1#heading {
+  text-align: center;
   font-family: 'Bangers', cursive;
   font-size: 36px;
   text-shadow: 4px 4px 4px #aaa
 }
 
-h1#heading {
+button#email {
   text-align: center;
 }
 
