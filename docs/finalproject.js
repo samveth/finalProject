@@ -23,7 +23,7 @@ const svg = d3.select('#pie-chart')
   .append('g')
     .attr('transform' , 'translate(' + 2 * r + ',' + 2 * r +')')
 
-const listColors = ['red', 'blue', 'purple' , 'green' , 'orange' , 'maroon' , 'pink' , 'yellow'];
+const listColors = ['#EE8572', '#35495E', '#347474' , '#63B7AF'];
 const color = d3.scaleOrdinal(listColors);
 
 const pie = d3.pie()
@@ -47,6 +47,7 @@ d3.select('div#pie-chart svg g')
   .enter()
   .append('path')
   .attr("fill", (d, i) => color(i))
+  .attr('opacity' , 1)
   .attr("d", arc)
   .attr("stroke", "black")
   .attr("stroke-width", "6px")
@@ -107,7 +108,7 @@ function draw(timeline) {
                   .attr('width', 150)
                   .attr('height' , 35)
                   .attr("fill", (d, i) => color(i))
-                  .attr('opacity' , 0.5)
+                  .attr('opacity' , 0.75)
                   .style('stroke', 'black')
                 .on('mouseover' , popUp)
                 .on('mouseleave' , popDown)
@@ -116,6 +117,7 @@ function draw(timeline) {
                .data(timeline)
                .enter()
                .append('text')
+                  .attr('font-family', 'Raleway')
                   .text (function(d) { return 'Week ' +  d['week']})
                   .style('stroke' , 'black')
                   .attr('dx' , -5)
@@ -142,8 +144,7 @@ console.log(weekNumber)
 // This is the function that shows the information when the mouse isn't on the rectangle
   function popUp(d) {
     let mouseLoc = d3.mouse(this)
-      let info =
-      'Click here to learn more about Week ' + d.week + '!!'
+      let info = 'Click here to learn more about Week ' + d.week + '!!'
     d3.selectAll('.tooltip')
       .html(info)
       .style('visibility' , 'visible')
@@ -159,13 +160,20 @@ function popDown() {
 
 function seeInfo(d) {
   let box = d3.select(this)
-  let info2 = 
-  d.description
+  let info2 = d.topic + '</br> ' + '</br> ' + d.description1 + '</br>' + '</br> ' + d.description2
   d3.selectAll('.tooltip')
     .html(info2)
-    .style('visibility' , 'visible')
     .style('left', 250  + 'px')
     .style('right', margin.right * 0.5 + 'px')
+  if ('visibility' === 'visible') {
+    d3.selectAll('.tooltip')
+    .style('visibility', 'hidden');
+    }
+  else {
+    d3.selectAll('.tooltip')
+    .style('visibility', 'visible');
+    };
+    // .style('visibility' , == 'visible' ? 'hidden' : 'visible')
 }
 
 }

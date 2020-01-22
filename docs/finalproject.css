@@ -1,22 +1,29 @@
+body {
+  background-color: navajowhite;
+}
+
 h1#hours {
   font-size: 14px;
+  font-family: 'Raleway', cursive;
 } 
 
 h1#heading {
   text-align: center;
-  font-family: 'Bangers', cursive;
+  font-family: 'Raleway', cursive;
   font-size: 36px;
   text-shadow: 4px 4px 4px #aaa
 }
 
 button#email {
   text-align: center;
+  font-family: 'Raleway', cursive;
 }
 
 p {
   margin-left: auto;
   margin-right: auto;
-  width: 40em
+  width: 40em;
+  font-family: 'Raleway', cursive;
 }
 
 div#graph {
@@ -33,6 +40,7 @@ div#graph {
   border-radius: 5px;
   padding: '5px';
   background-color: white;
+  font-family: 'Raleway';
 }
 
 
