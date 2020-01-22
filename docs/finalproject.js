@@ -1,6 +1,6 @@
 function buttonFunction(){
   console.log('hi')
-  
+
     d3.select(this)
       .style('fill', 'red')
   }
@@ -186,5 +186,90 @@ function seeInfo(d) {
 }
 
 }
-draw(timeline);
+// draw(timeline);
+
+function addInfo() {
+  console.log('here')
+}
+
+
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
+
+
+// }
+function showInfo () {
+  var coll = d3.selectAll('collapsible')
+  var i
+  for (i = 0; i < coll.length; i++) {
+    coll[i].on("click", function() {
+      this.week.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        console.log('1')
+      } else {
+        content.style.display = "block";
+        console.log('2')
+      }
+    });
+  }
+}
+
+d3.selectAll('collapsible')
+  .on('click', showInfo())
+
+
+// var chartTwo = d3.select('body')
+
+// function appendRect (timeline) {
+//   chartTwo.selectAll('rect')
+//   .data(timeline)
+//   .enter()
+//   .append('rect')
+//   .attr('x', -45)
+//   .attr('y', d => yScale(d.week) - 25)
+//   .attr('width', 150)
+//   .attr('height' , 35)
+//   .attr("fill", (d, i) => color(i))
+//   .attr('opacity' , 0.75)
+//   .style('stroke', 'black')
+// }
+                    
+
+
+
+// function createButtons (timeline) {
+//   var coll = d3.select(body#collapsible)
+//                 .selectAll('button')
+//                 .data(timeline)
+//                 .enter()
+//                 .append('button')
+// }
+//  createButtons(timeline)
+
+// scatterInner.selectAll('circle')
+//                 .data(timeline)
+//                 .enter()
+//                 .append('rect')
+//                   .attr('x', -45)
+//                   .attr('y', d => yScale(d.week) - 25)
+//                   .attr('width', 150)
+//                   .attr('height' , 35)
+//                   .attr("fill", (d, i) => color(i))
+//                   .attr('opacity' , 0.75)
+//                   .style('stroke', 'black')
+//                 .on('mouseover' , popUp)
+//                 .on('mouseleave' , popDown)
+//                 .on('click' , seeInfo)
+//     scatterInner.selectAll('text')
+//                .data(timeline)
+//                .enter()
+//                .append('text')
+//                   .attr('font-family', 'Raleway')
+//                   .text (function(d) { return 'Week ' +  d['week']})
+//                   .style('stroke' , 'black')
+//                   .attr('dx' , -5)
+//                   .attr('dy' , d => yScale(d.week))  
+
 

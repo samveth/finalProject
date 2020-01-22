@@ -43,4 +43,25 @@ div#graph {
   font-family: 'Raleway';
 }
 
+.collapsible {
+  background-color: blue;
+  color: white;
+  padding: 18px;
+  width: 20%;
+  border: none;
+  text-align: left;
+  font-family: 'Raleway', cursive;
+}
 
+.active, .collapsible:hover {
+  background-color: orange;
+}
+
+
+
+.content {
+  padding: 0 18 px;
+  display: none;
+  overflow: hidden;
+  background-color: green
+}
