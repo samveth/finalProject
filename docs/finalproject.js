@@ -1,9 +1,11 @@
-function myFunction(){
+function buttonFunction(){
+  console.log('hi')
+  
     d3.select(this)
       .style('fill', 'red')
   }
 
-d3.select('#button').on('click' , myFunction)
+d3.select('#email').on('click' , buttonFunction)
 
 //make height and width variables for the svg
 let h = 300
@@ -113,7 +115,7 @@ function draw(timeline) {
                 .on('mouseover' , popUp)
                 .on('mouseleave' , popDown)
                 .on('click' , seeInfo)
-  scatterInner.selectAll('text')
+    scatterInner.selectAll('text')
                .data(timeline)
                .enter()
                .append('text')
@@ -122,6 +124,8 @@ function draw(timeline) {
                   .style('stroke' , 'black')
                   .attr('dx' , -5)
                   .attr('dy' , d => yScale(d.week))             
+
+  
 
   // create axes
     // let xAxisBottom = d3.axisBottom(xScale);
@@ -139,7 +143,8 @@ function draw(timeline) {
  function weekNumber(d) {
    return + d.week
  }
-console.log(weekNumber)
+
+// console.log(weekNumber)
 
 // This is the function that shows the information when the mouse isn't on the rectangle
   function popUp(d) {
@@ -165,14 +170,18 @@ function seeInfo(d) {
     .html(info2)
     .style('left', 250  + 'px')
     .style('right', margin.right * 0.5 + 'px')
-  if ('visibility' === 'visible') {
-    d3.selectAll('.tooltip')
-    .style('visibility', 'hidden');
-    }
-  else {
+    // .style('visibility', if('hidden') {'visible'} else {'hidden'})
+
+  if ('hidden') {
+    console.log('hidden')
     d3.selectAll('.tooltip')
     .style('visibility', 'visible');
+    } else {
+    d3.selectAll('.tooltip')
+    console.log('now')
+    .style('visibility', 'hidden');
     };
+
     // .style('visibility' , == 'visible' ? 'hidden' : 'visible')
 }
 
