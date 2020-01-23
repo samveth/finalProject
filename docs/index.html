@@ -17,33 +17,121 @@
 </head>
 <body>
     <h1 id = 'heading'>First Year Seminar</h1>
+
+    <table style = "float: left;">
+      <tr>
+        <td>Professor:</td>
+        <td>Krista Carter </td>
+      </tr>
+      <tr> 
+        <td>Hours:</td> 
+        <td>By appointment</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><button><a href = "mailto:kc44@calvin.edu"> kc44@calvin.edu</button></td>
+      </tr>
+    </table>
+    <table style = "float: left;">
+    <table align= "right">
+      <td>This website was created to fulfill</td>
+    </tr>
+    <tr>
+      <td>requirements of Math W82: Data</td>
+    </tr>
+    <tr>
+      <td>Visualization with D3 at Calvin</td>
+    </tr>
+    <tr>
+      <td>University, January 2020.</td>
+    </tr>
+    </table>
+
+    <div class='btn-group'></div>
+
+
+
+<!-- 
       <h1 id = 'hours'>Office hours: by appointment</h1>
     <p>Welcome to FYS. I am so glad that you are in my class. 
       For this class we will be using an interactive syllabus 
-      in order to easily navigate the class. </p>
+      in order to easily navigate the class. </p> -->
 
-    <button id = "email">kc44@calvin.edu</button>
-    <div id = 'pie-chart'></div>
+    <!-- <button id = "email">kc44@calvin.edu</button> -->
+
     <div id = 'graph'>
       <div class = 'tooltip'></div>
     </div>
     <div id class ='info'></div>
 
+    <!-- Collapsible set buttons -->
+    <br><br><br><br>
     <p>Collapsible Set:</p> 
-    <button type='button' class='collapsible'>Button 1</button>
+    <div></div><button type='button' class='collapsible' style = 'background-color:#EE8572'>Week 1</button>
     <div class='content'>
       <p>hello</p>
+    </div><br><br>
     </div>
-    <button type='button' class='collapsible'>Button 2</button>
+    
+    <div></div><button type='button' class='collapsible' style = 'background-color:#35495E'>Week 2</button>
     <div class='content'>
       <p>hello</p>
+    </div><br><br>
     </div>
-    <button type='button' class='collapsible'>Button 3</button>
+    
+    <div></div><button type='button' class='collapsible' style = 'background-color:#347474'>Week 3</button>
     <div class='content'>
       <p>hello</p>
+    </div><br><br>
     </div>
 
+    <div></div><button type='button' class='collapsible' style = 'background-color:#63B7AF' >Week 4</button>
+    <div class='content'>
+      <p>hello</p>
+    </div><br><br>
+    </div>
+    
+    <div></div><button type='button' class='collapsible' style = 'background-color:#EE8572'>Week 5</button>
+    <div class='content'>
+      <p>hello</p>
+    </div><br><br>
+    </div>
+    
+    <div></div><button type='button' class='collapsible' style = 'background-color:#35495E'>Week 6</button>
+    <div class='content'>
+      <p>hello</p>
+    </div><br><br>
+    </div>
 
-    <script src="finalproject.js"></script>
+    <div></div><button type='button' class='collapsible' style = 'background-color:#347474'>Week 7</button>
+    <div class='content'>
+      <p>hello</p>
+    </div><br><br>
+    </div>
+
+    <!-- pie chart -->
+    <div id = 'pie-chart'></div>
+    
+
+<script>
+
+    var coll = document.getElementsByClassName('collapsible');
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        // this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+</script>
+
+<script src="finalproject.js"></script>
+
 </body>
 </html>

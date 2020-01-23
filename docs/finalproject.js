@@ -14,9 +14,9 @@ let r = 90
 
 
 //making the pie data for pie chart
-let pieData = [{"label": "one", "value":50},
-           {"label": "two", "value":30},
-           {"label": "three", "value":20}];
+let pieData = [{"label": "Complete", "value":30},
+           {"label": "Thoughtful", "value":30},
+           {"label": "Grammar", "value":30}];
 
 const svg = d3.select('#pie-chart')
   .append('svg')
@@ -53,6 +53,24 @@ d3.select('div#pie-chart svg g')
   .attr("d", arc)
   .attr("stroke", "black")
   .attr("stroke-width", "6px")
+
+// text in the pie graph
+d3.select('div#pie-chart svg g')
+  .selectAll('text')
+  .data(pie(pieData))
+  .enter()
+  .append('text')
+  .attr('transform', function(d) {
+    return 'translate (' + arc.centroid(d) + ')';
+  })
+  .text(function(d,i) {
+    return pieData[i].label; 
+  })
+  .attr('d', arc)
+  .attr('text-anchor', 'middle')
+  .attr('font-family', 'Raleway')
+  .attr('stroke', 'black')
+
 
 //define constants of timeline svg
 const marginWidth = 50;
@@ -186,90 +204,17 @@ function seeInfo(d) {
 }
 
 }
-// draw(timeline);
+draw(timeline);
 
-function addInfo() {
-  console.log('here')
-}
-
-
-// var coll = document.getElementsByClassName("collapsible");
-// var i;
-
-
-// }
-function showInfo () {
-  var coll = d3.selectAll('collapsible')
-  var i
-  for (i = 0; i < coll.length; i++) {
-    coll[i].on("click", function() {
-      this.week.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-        console.log('1')
-      } else {
-        content.style.display = "block";
-        console.log('2')
-      }
-    });
-  }
-}
-
-d3.selectAll('collapsible')
-  .on('click', showInfo())
+d3.select('div#btn-group')
+  .selectAll('button')
+  .data(timeline)
+  .enter()
+  .append('button')
+//   .attr()
+  .attr("fill", 'red')
+  .attr('opacity' , 1)
 
 
-// var chartTwo = d3.select('body')
-
-// function appendRect (timeline) {
-//   chartTwo.selectAll('rect')
-//   .data(timeline)
-//   .enter()
-//   .append('rect')
-//   .attr('x', -45)
-//   .attr('y', d => yScale(d.week) - 25)
-//   .attr('width', 150)
-//   .attr('height' , 35)
-//   .attr("fill", (d, i) => color(i))
-//   .attr('opacity' , 0.75)
-//   .style('stroke', 'black')
-// }
-                    
-
-
-
-// function createButtons (timeline) {
-//   var coll = d3.select(body#collapsible)
-//                 .selectAll('button')
-//                 .data(timeline)
-//                 .enter()
-//                 .append('button')
-// }
-//  createButtons(timeline)
-
-// scatterInner.selectAll('circle')
-//                 .data(timeline)
-//                 .enter()
-//                 .append('rect')
-//                   .attr('x', -45)
-//                   .attr('y', d => yScale(d.week) - 25)
-//                   .attr('width', 150)
-//                   .attr('height' , 35)
-//                   .attr("fill", (d, i) => color(i))
-//                   .attr('opacity' , 0.75)
-//                   .style('stroke', 'black')
-//                 .on('mouseover' , popUp)
-//                 .on('mouseleave' , popDown)
-//                 .on('click' , seeInfo)
-//     scatterInner.selectAll('text')
-//                .data(timeline)
-//                .enter()
-//                .append('text')
-//                   .attr('font-family', 'Raleway')
-//                   .text (function(d) { return 'Week ' +  d['week']})
-//                   .style('stroke' , 'black')
-//                   .attr('dx' , -5)
-//                   .attr('dy' , d => yScale(d.week))  
-
-
+d3.selectAll('#button.collapsible')
+  .attr("fill", (d, i) => color(i))

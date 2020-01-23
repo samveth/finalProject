@@ -2,16 +2,24 @@ body {
   background-color: navajowhite;
 }
 
-h1#hours {
+/* h1#hours {
   font-size: 14px;
   font-family: 'Raleway', cursive;
-} 
+}  */
 
 h1#heading {
   text-align: center;
   font-family: 'Raleway', cursive;
   font-size: 36px;
-  text-shadow: 4px 4px 4px #aaa
+  text-shadow: 4px 4px 4px #aaa;
+  background-color: white;
+  opacity: .9;
+}
+
+tr, td {
+  text-align: left;
+  font-family: 'Raleway', cursive,
+  font-size: 13 px;
 }
 
 button#email {
@@ -19,12 +27,12 @@ button#email {
   font-family: 'Raleway', cursive;
 }
 
-p {
+/* p {
   margin-left: auto;
   margin-right: auto;
   width: 40em;
   font-family: 'Raleway', cursive;
-}
+} */
 
 div#graph {
   border: 2px;
@@ -40,12 +48,15 @@ div#graph {
   border-radius: 5px;
   padding: '5px';
   background-color: white;
-  font-family: 'Raleway';
+  font-family: 'Raleway', cursive;
+
 }
 
 .collapsible {
-  background-color: blue;
-  color: white;
+  /* background-color: #63B7AF;
+  opacity: 0.75 */
+  /* '#EE8572', '#35495E', '#347474' , '#63B7AF' */
+  color: black;
   padding: 18px;
   width: 20%;
   border: none;
@@ -54,14 +65,14 @@ div#graph {
 }
 
 .active, .collapsible:hover {
-  background-color: orange;
+  background-color:#347474;
 }
-
-
 
 .content {
   padding: 0 18 px;
   display: none;
   overflow: hidden;
-  background-color: green
+  /* background-color: #35495E; */
+  color: blalck;
 }
+
