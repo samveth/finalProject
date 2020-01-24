@@ -44,7 +44,7 @@ let timeline = [
     {
     week:7,
     x: 0,
-    topic: 'Celebration and Refection:',
+    topic: 'Celebration and Reflection:',
     description1: '1.) Turn in your final essay.', 
     description2: '2.) Celebrate with your classmates and share your reflections.',
     },

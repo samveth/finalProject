@@ -72,6 +72,47 @@ d3.select('div#pie-chart svg g')
   .attr('stroke', 'black')
 
 
+
+//read in data for pie chart
+
+function cleanupData(d) {
+  d.week = +d.week
+  return d
+}
+
+let syllData = []
+
+d3.csv('finalData.csv', cleanupData)
+.then(function(data) {
+  syllData = data
+  console.log(data)
+
+  d3.select('.csvButtons')
+    .append('rect')
+      .attr("x", 50)
+      .attr("y",50)
+      .attr("width",20)
+      .attr("height",20)
+      .attr("fill",'orange');
+
+  // for (i = 0; i < csv.week.length(); i++) {
+
+  // }
+
+})
+.catch(function(error) {
+  console.log('csv chart catching error')
+})
+
+
+
+
+
+
+
+
+
+
 //define constants of timeline svg
 const marginWidth = 50;
 const svgWidth = 600;
@@ -80,6 +121,15 @@ const margin = {top: marginWidth, right: marginWidth, bottom: marginWidth, left:
 const plotWidth = svgWidth - margin.left - margin.right;
 const plotHeight = svgHeight - margin.top - margin.bottom;
  
+
+
+
+
+
+
+
+
+
 
 // function draw(timeline) {
 
