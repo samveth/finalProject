@@ -25,7 +25,7 @@ const svg = d3.select('#pie-chart')
   .append('g')
   .attr('transform' , 'translate(' +  1.5 * r + ',' + 1.5 * r +')')
 
-const listColors = ['#EE8572', '#35495E', '#347474' , '#63B7AF'];
+const listColors = ['#EE8572', '#347474' , '#63B7AF', '#35495E'];
 const color = d3.scaleOrdinal(listColors);
 
 const pie = d3.pie()
