@@ -30,9 +30,11 @@ div#graph {
 }
 
 h3#final {
-  position: absolute;
+  position: fixed;
   right: 390px;
-  top: 230px; 
+  top: 230px;
+  /* right: 390px;
+  top: 230px;  */
 }
 p#description {
   position: absolute;
