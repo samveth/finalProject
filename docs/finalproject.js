@@ -25,7 +25,7 @@ const svg = d3.select('#pie-chart')
   .append('g')
   .attr('transform' , 'translate(' +  1.5 * r + ',' + 1.5 * r +')')
 
-const listColors = ['#EE8572', '#347474' , '#63B7AF', '#35495E'];
+const listColors = ['#EE8572', '#347474' , '#63B7AF']; //'#35495E'
 const color = d3.scaleOrdinal(listColors);
 
 const pie = d3.pie()
@@ -80,29 +80,141 @@ function cleanupData(d) {
   return d
 }
 
-let syllData = []
 
-d3.csv('finalData.csv', cleanupData)
-.then(function(data) {
-  syllData = data
-  console.log(data)
+// //trying to automate data and buttons
+// let syllData = []
 
-  d3.select('.csvButtons')
-    .append('rect')
-      .attr("x", 50)
-      .attr("y",50)
-      .attr("width",20)
-      .attr("height",20)
-      .attr("fill",'orange');
+// d3.csv('finalData.csv', cleanupData)
+// .then(function(data) {
+//   syllData = data
+//   console.log(data)
+//   d3.select('.info')
+//     .selectAll('div')
+//     .data(data)
+//     .append('div')
+//       .attr('class', 'info')
+//       .text(function(d) { return d.topic})
 
-  // for (i = 0; i < csv.week.length(); i++) {
+//   d3.select('.csvButtons')
+//     .selectAll('button')
+//     .data(data)
+//     .enter()
+//     .append('button')
+//       .attr('type', 'button')
+//       .attr('class', 'csvButtons')
+//       .style('background-color', (d, i) => color(i))
+//     .append('div')
+//       .attr('class', 'label')
+//       .text(function(d) { return 'Week ' + d.week;})
+//       // .style('display', 'none')
+//     .on('click', function(d,i) {
+//       d3.append('text').text('here')
+//     })
 
+
+//   d3.select('.info')
+//     .selectAll('text')
+//     .data(data)
+//     .enter()
+//     .append('text')
+//       .text('hello')
+// })
+
+// .catch(function(error) {
+//   console.log('csv chart catching error')
+// })
+
+  //end new buttons
+  
+    
+    
+
+
+
+
+
+
+
+
+  // var coll = document.getElementsByClassName('collapsible');
+  // var i;
+
+  // for (i = 0; i < coll.length; i++) {
+  //   coll[i].addEventListener("click", function() {
+  //     // this.classList.toggle("active");
+  //     var content1 = this.nextElementSibling;
+  //     if (content1.style.display === "block") {
+  //       content1.style.display = "none";
+  //     } else {
+  //       content1.style.display = "block";
+  //     }
+  //   });
   // }
 
-})
-.catch(function(error) {
-  console.log('csv chart catching error')
-})
+
+
+
+      // .on('click', function(d,i) { 
+      //   var content = d3.select(this).info
+      //   if(content.style('display', 'block')) {content.style('display', 'none')}
+      //   else {content.style('display', 'block')}
+
+
+        // var content = d.info;
+        // if (content.style.display === 'block') {content.style.display = 'none'}
+        // else {content.style.display = 'block' }
+
+
+      
+        // if (d.style === 'block') { console.log('hi again')}
+        // else { console.log('well...')}
+      
+        // .append('text')
+        // .attr('class', 'content')
+        // .text('hello')
+
+
+  // function showInfo () {
+  //   // if (d.) {}
+  //   if (d.)
+
+
+
+
+
+    // var content = this.nextElementSibling;
+    // if (content.style.distplay === 'block') {
+    //   'content.style.display = 'none;
+    // } else {
+    //   content.style.display = 'block'
+    // }
+
+    // d3.selectAll('.csvButtons')
+      
+  // }
+
+
+      
+
+
+
+
+
+// var coll = document.getElementsByClassName('collapsible');
+// var i;
+
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function() {
+//     // this.classList.toggle("active");
+//     var content = this.nextElementSibling;
+//     if (content.style.display === "block") {
+//       content.style.display = "none";
+//     } else {
+//       content.style.display = "block";
+//     }
+// }
+
+
 
 
 

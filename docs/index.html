@@ -59,8 +59,6 @@
     <div id class ='info'></div>
 
 
-    <div class=csvButtons></div>
-
 
     <!-- Collapsible set buttons -->
     <br><br><br><br>
@@ -132,6 +130,14 @@
     <p id = 'format4'> *Graded on Rubic</p>
     
 
+    <div class=csvButtons></div>
+
+    <div class=info></div>
+
+
+
+
+
 <script>
 
     var coll = document.getElementsByClassName('collapsible');
@@ -140,11 +146,11 @@
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
         // this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
+        var content1 = this.nextElementSibling;
+        if (content1.style.display === "block") {
+          content1.style.display = "none";
         } else {
-          content.style.display = "block";
+          content1.style.display = "block";
         }
       });
     }
