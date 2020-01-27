@@ -33,23 +33,21 @@ h3#final {
   position: fixed;
   right: 390px;
   top: 230px;
-  /* right: 390px;
-  top: 230px;  */
 }
 p#description {
-  position: absolute;
+  position: fixed;
   right: 280px;
   top: 260px;
 }
 
 p#description2 {
-  position: absolute;
+  position: fixed;
   right: 150px;
   top: 290px;
 }
 
 div#pie-chart {
-  position: absolute;
+  position: fixed;
   right: 65px;
   top: 300px;
 }
@@ -58,37 +56,37 @@ div#pie-chart {
   height: 400px;
   width: 550px;
   border:1px solid black;
-  position: absolute;
+  position: fixed;
   right: 100px;
   top: 230px;
 }
 
 h3#format {
-  position: absolute;
+  position: fixed;
   right: 560px;
   top: 320px;
 }
 
 p#format {
-  position: absolute;
+  position: fixed;
   right: 400px;
   top: 350px;
 }
 
 p#format2 {
-  position: absolute;
+  position: fixed;
   right: 405px;
   top: 400px;
 }
 
 p#format3 {
-  position: absolute;
+  position: fixed;
   right: 370px;
   top: 450px;
 }
 
 p#format4 {
-  position: absolute;
+  position: fixed;
   right: 500px;
   top: 500px;
 }
