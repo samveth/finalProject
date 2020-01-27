@@ -14,7 +14,7 @@ h1#heading {
 tr, td {
   text-align: left;
   font-family: 'Raleway', cursive,;
-  font-size: 13 px;
+  font-size: 12 px;
 }
 
 button#email {
@@ -29,6 +29,7 @@ div#graph {
   width: 500px;
 }
 
+@media only screen and (min-width: 1100px) {
 h3#final {
   position: fixed;
   right: 390px;
@@ -89,6 +90,7 @@ p#format4 {
   position: fixed;
   right: 500px;
   top: 500px;
+}
 }
 .tooltip {
   position: absolute;
