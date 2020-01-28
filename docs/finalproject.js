@@ -85,7 +85,7 @@ const svg = d3.select('#pie-chart')
   .append('g')
   .attr('transform' , 'translate(' +  1.5 * r + ',' + 1.5 * r +')')
 
-const listColors = ['#EE8572', '#347474' , '#63B7AF', '#35495E'];
+const listColors = ['#EE8572', '#347474' , '#63B7AF']; //'#35495E'
 const color = d3.scaleOrdinal(listColors);
 
 const pie = d3.pie()
@@ -163,32 +163,15 @@ function cleanupData(d) {
 // })
 
 
-
-
-
-
-
-
-
-
-//define constants of timeline svg
-const marginWidth = 50;
-const svgWidth = 600;
-const svgHeight = 800;
-const margin = {top: marginWidth, right: marginWidth, bottom: marginWidth, left: marginWidth + 75};
-const plotWidth = svgWidth - margin.left - margin.right;
-const plotHeight = svgHeight - margin.top - margin.bottom;
+// //define constants of timeline svg
+// const marginWidth = 50;
+// const svgWidth = 600;
+// const svgHeight = 800;
+// const margin = {top: marginWidth, right: marginWidth, bottom: marginWidth, left: marginWidth + 75};
+// const plotWidth = svgWidth - margin.left - margin.right;
+// const plotHeight = svgHeight - margin.top - margin.bottom;
  
-
-
-
-
-
-
-
-
-
-
+// // first attempt in drawing out week timeline
 // function draw(timeline) {
 
 //     // define svg size
@@ -270,19 +253,19 @@ const plotHeight = svgHeight - margin.top - margin.bottom;
 //    return + d.week
 //  }
 
-// // console.log(weekNumber)
+// console.log(weekNumber)
 
-// // This is the function that shows the information when the mouse isn't on the rectangle
-//   function popUp(d) {
-//     let mouseLoc = d3.mouse(this)
-//       let info = 'Click here to learn more about Week ' + d.week + '!!'
-//     d3.selectAll('.tooltip')
-//       .html(info)
-//       .style('visibility' , 'visible')
-//       .style('left', 250  + 'px')
-//       .style('top', mouseLoc[1] + 'px')
+// This is the function that shows the information when the mouse isn't on the rectangle
+  // function popUp(d) {
+  //   let mouseLoc = d3.mouse(this)
+  //     let info = 'Click here to learn more about Week ' + d.week + '!!'
+  //   d3.selectAll('.tooltip')
+  //     .html(info)
+  //     .style('visibility' , 'visible')
+  //     .style('left', 250  + 'px')
+  //     .style('top', mouseLoc[1] + 'px')
   
-//   }
+  // }
 
 // // This is the function that hides the information when the mouse isn't on the rectangle
 // function popDown() {
