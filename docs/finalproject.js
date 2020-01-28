@@ -1,13 +1,72 @@
-function buttonFunction(){
-  console.log('hi')
+// information for in the week boxes from timeline.js file
+for (var i = 0; i < 7; ++i) {
+  var topic = timeline[i].topic; 
+  var d1 = timeline[i].description1; 
+  var d2 = timeline[i].description2;
 
-    d3.select(this)
-      .style('fill', 'red')
-  }
+  var contentNumber = i + 1; 
+  var timelineElements = document.getElementById('content' + contentNumber);
 
-d3.select('#email').on('click' , buttonFunction)
 
-//make height and width variables for the svg
+  var header = document.createElement("h4"); 
+  var headerText = document.createTextNode(topic); 
+  header.appendChild(headerText); 
+  timelineElements.appendChild(header); 
+  
+
+  var para = document.createElement("p"); 
+  var paraText = document.createTextNode(d1); 
+  para.appendChild(paraText); 
+  timelineElements.appendChild(para); 
+
+
+  var para2 = document.createElement("p"); 
+  var paraText2 = document.createTextNode(d2); 
+  para2.appendChild(paraText2); 
+  timelineElements.appendChild(para2); 
+
+}
+
+// //trying to read in from csv file
+// function processData(d) {
+//   var allTextLInes = allText.split(/\r/n)
+//   d.week = +d.week
+//   return d
+// }
+
+// for (var i = 0; i < 7; ++i) {
+//   let syllData = 'finalData.csv';
+//   var topic = syllData[i].topic; 
+//   var d1 = syllData[i].homework1;
+//   var d2 = syllData[i].homework2;
+
+//   var contentNumber = i + 1; 
+//   var timelineElements = document.getElementById('content' + contentNumber);
+
+
+//   var header = document.createElement("h4"); 
+//   var headerText = document.createTextNode(topic); 
+//   header.appendChild(headerText); 
+//   timelineElements.appendChild(header); 
+  
+
+//   var para = document.createElement("p"); 
+//   var paraText = document.createTextNode(d1); 
+//   para.appendChild(paraText); 
+//   timelineElements.appendChild(para); 
+
+
+//   var para2 = document.createElement("p"); 
+//   var paraText2 = document.createTextNode(d2); 
+//   para2.appendChild(paraText2); 
+//   timelineElements.appendChild(para2); 
+
+// }
+
+
+//pie chart
+
+//make height and width variables for pie chart svg
 let h = 300
 let w = 300
 let r = 90
@@ -18,6 +77,7 @@ let pieData = [{"label": "Complete", "value":30},
            {"label": "Thoughtful", "value":30},
            {"label": "Grammar", "value":30}];
 
+//creating pie chart
 const svg = d3.select('#pie-chart')
   .append('svg')
     .attr('width' , w)
@@ -31,7 +91,6 @@ const color = d3.scaleOrdinal(listColors);
 const pie = d3.pie()
   .value(d => d.value)
   .sort(null)
-
 
 const arc = d3.arc()
    .innerRadius(0)
@@ -71,38 +130,37 @@ d3.select('div#pie-chart svg g')
   .attr('font-family', 'Raleway')
   .attr('stroke', 'black')
 
-
-
 //read in data for pie chart
-
 function cleanupData(d) {
   d.week = +d.week
   return d
 }
 
-let syllData = []
 
-d3.csv('finalData.csv', cleanupData)
-.then(function(data) {
-  syllData = data
-  console.log(data)
+// //trying to create chart by reading in data from csv
+// let syllData = []
 
-  d3.select('.csvButtons')
-    .append('rect')
-      .attr("x", 50)
-      .attr("y",50)
-      .attr("width",20)
-      .attr("height",20)
-      .attr("fill",'orange');
+// d3.csv('finalData.csv', cleanupData)
+// .then(function(data) {
+//   syllData = data
+//   console.log(data)
 
-  // for (i = 0; i < csv.week.length(); i++) {
+//   d3.select('.csvButtons')
+//     .append('rect')
+//       .attr("x", 50)
+//       .attr("y",50)
+//       .attr("width",20)
+//       .attr("height",20)
+//       .attr("fill",'orange');
 
-  // }
+//   // for (i = 0; i < csv.week.length(); i++) {
 
-})
-.catch(function(error) {
-  console.log('csv chart catching error')
-})
+//   // }
+
+// })
+// .catch(function(error) {
+//   console.log('csv chart catching error')
+// })
 
 
 

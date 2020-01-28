@@ -91,8 +91,9 @@ p#format4 {
   right: 500px;
   top: 500px;
 }
+
 }
-.tooltip {
+/* .tooltip {
   position: absolute;
   border: solid;
   border-width: 2px;
@@ -100,8 +101,7 @@ p#format4 {
   padding: '5px';
   background-color: white;
   font-family: 'Raleway', cursive;
-
-}
+} */
 
 
 .collapsible {
